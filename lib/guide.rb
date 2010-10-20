@@ -14,7 +14,7 @@ class Guide
     else
       puts "Exiting.\n\n"
       exit!
-                                                                                                                                                                                                                              end  
+    end  
     
     # or create a new file
     # exit if create fails
@@ -42,7 +42,7 @@ class Guide
       when 'find'
         puts 'Finding...'
       when 'add'
-        puts 'Adding...'
+        add
       when 'quit'
         return :quit
       else
@@ -55,8 +55,31 @@ class Guide
     puts "This is an interactive guide to help you find the perfect restaurant.\n\n"
   end
   
+  def add
+    puts '\nAdding...\n\n'.upcase
+    restaurant = Restaurant.new
+    
+    print "Restaurant name: "
+    restaurant.name = gets.chomp.strip
+    
+    print "Cuisine Type: "
+    restaurant.cuisine = gets.chomp.strip
+    
+    print "Average Price: "
+    restaurant.price = gets.chomp.strip
+  
+      if restaurant.save
+        puts "\nRestaurant Added\n\n" 
+      else
+        puts "\nSave Error: Restaurant not added\n\n"
+      end         
+      
+  end
+  
   def conclusion
     puts "\n<<< Goodbye and Bon Appetit! >>>\n\n\n"
   end
   
 end
+
+

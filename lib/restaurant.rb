@@ -5,6 +5,8 @@ class Restaurant
   def self.filepath=(path=nil)    # setter method that can be called from outside the class
     @@filepath = File.join(APP_ROOT, path)
   end
+  
+  attr_accessor :name, :cuisine, :price
         
   def self.file_exists?
     # class should know id the restaurant file exists
@@ -32,5 +34,12 @@ class Restaurant
     # read the restaunants file
     # return instonn
   end
-  
+
+  def save
+    return false unless Restaurant.file_usable?
+    File.open(@@filepath, 'a') do |file|
+      file.puts "#{[@name, @cuisine, @price].join("\t")}\n"
+      return true
+    end
+  end
 end
