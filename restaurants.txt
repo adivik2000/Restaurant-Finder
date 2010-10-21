@@ -1,3 +1,2 @@
 Fuki Sushi	Sushi	25.00
-exit	quit	50	
 Joey's Place	American	25.00
