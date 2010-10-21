@@ -1,8 +1,13 @@
+require 'support/number_helper'
+
 class Restaurant
+
+  include NumberHelper
    
   @@filepath = nil
-  
-  def self.filepath=(path=nil)    # setter method that can be called from outside the class
+
+  # setter method that can be called from outside the class
+  def self.filepath=(path=nil)    
     @@filepath = File.join(APP_ROOT, path)
   end
   
@@ -15,7 +20,7 @@ class Restaurant
     else
       return false
     end  
-  end
+  end    
   
   def self.file_usable?
     return false unless @@filepath
@@ -77,4 +82,9 @@ class Restaurant
       return true
     end
   end
+
+  def formatted_price
+    number_to_currency(@price)
+  end  
+  
 end
