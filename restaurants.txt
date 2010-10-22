@@ -1,3 +1,6 @@
-Fuki Sushi	Sushi	25.00
-Joey's Place	American	25.00
-Eat At Joes	American	$10.00
+Eat At Joes	American	10.00
+MacDonalds	Fast Food	5.00
+ArghBees	Roasted Beef	7.50
+Taco Hell	Mexican	3.00
+FullZolies	Italian	8.50
+Dairy King	Frozen Treats	6.50

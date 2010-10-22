@@ -91,7 +91,7 @@ class Guide
       end      
     end    
     output_restaurant_table(restaurants)
-    puts "Sort using: 'list cuisine or ,'list by cuisine'\n\n"
+    puts "Sort using: 'list cuisine' or 'list by cuisine'\n\n"
   end
   
   def conclusion
