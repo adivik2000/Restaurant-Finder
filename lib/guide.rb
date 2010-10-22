@@ -9,14 +9,12 @@ class Guide
   end
   
   def initialize(path=nil)
-    # locate the restaurant text file at path
     Restaurant.filepath = path
     
     if Restaurant.file_usable?
       puts "Found restaurant file."
     elsif Restaurant.create_file
       puts "Created restaurant file."
-      # exit if create f''ails
     else
       puts "Exiting.\n\n"
       exit!
@@ -78,7 +76,7 @@ class Guide
   
   def list(args=[])
     sort_order = args.shift 
-    sort_order = args.shift if sort_order == 'by'
+    sort_order = args.shift if sort_order == 'byt'
     sort_order = "name" unless ['name', 'cuisine', 'price'].include?(sort_order)    
     output_action_header("Listing Restaurants")                
     restaurants = Restaurant.saved_restaurants    
@@ -122,19 +120,19 @@ class Guide
     puts "\n#{text.upcase.center(60)}\n\n"
   end
   
-  def output_restaurant_table(restaurants=[])
+	def output_restaurant_table(restaurants=[])
     print " " + "Name".ljust(30)
-    print " " + "Cuisine".ljust(20)    
-    print " " + "Price".rjust(6) + "\n"   
+    print " " + "Cuisine".ljust(20)
+    print " " + "Price".rjust(6) + "\n"
     puts "-" * 60
-    restaurants.each do |rest|      
-      line = " " << rest.name.titleize.ljust(30)
+    restaurants.each do |rest|
+      line =  " " << rest.name.titleize.ljust(30)
       line << " " + rest.cuisine.titleize.ljust(20)
       line << " " + rest.formatted_price.rjust(6)
       puts line
     end
-    puts "No listing found" if restaurants.empty?
-    puts "-" * 60  
+    puts "No listings found" if restaurants.empty?
+    puts "-" * 60
   end
-
+  
 end

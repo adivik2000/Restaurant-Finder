@@ -1,12 +1,9 @@
 require 'support/number_helper'
 
 class Restaurant
-
-  include NumberHelper
-   
+  include NumberHelper   
   @@filepath = nil
 
-# setter method that can be called from outside the class
   def self.filepath=(path=nil)    
     @@filepath = File.join(APP_ROOT, path)
   end
@@ -14,7 +11,6 @@ class Restaurant
   attr_accessor :name, :cuisine, :price
         
   def self.file_exists?
-    # class should know id the restaurant file exists
     if @@filepath && File.exists?(@@filepath)
       return true
     else
@@ -36,8 +32,6 @@ class Restaurant
   end
 
   def self.saved_restaurants
-    # read the restaunants file
-    # return instonn
     restaunants = []
     if file_usable?
       file = File.new(@@filepath, 'r')
