@@ -6,7 +6,7 @@ class Restaurant
    
   @@filepath = nil
 
-  # setter method that can be called from outside the class
+# setter method that can be called from outside the class
   def self.filepath=(path=nil)    
     @@filepath = File.join(APP_ROOT, path)
   end
